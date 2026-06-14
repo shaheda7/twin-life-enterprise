@@ -1,0 +1,136 @@
+name: Twin Life Enterprise
+version: 0.1.0
+manifestVersion: 1.0
+description: >-
+  Declarative Agent manifest for the Twin Life Enterprise PoC. Scaffolding
+  includes intents, grounding sources, and a sample connector to a simulation
+  microservice. Update connector URLs and auth before provisioning.
+author: "Twin Life Team"
+
+metadata:
+  language: en-US
+
+intents:
+  - id: simulate-scenarios
+    displayName: Simulate Scenarios
+    examples:
+      - "Simulate this architecture"
+      - "Run scenario comparison"
+      - "Run simulation for scenario A"
+    description: Runs one or more simulation scenarios and returns structured KPIs.
+
+  - id: compare-architectures
+    displayName: Compare Architectures
+    examples:
+      - "Compare cloud vs hybrid for cost and risk"
+      - "Which architecture has lower TCO?"
+    description: Compares two or more architectures and returns ranked recommendations.
+
+  - id: explain-impact
+    displayName: Explain Impact
+    examples:
+      - "Explain the main drivers of cost difference"
+      - "Show top risks for this scenario"
+    description: Returns explainability and citeable grounding for results.
+
+groundingSources:
+  - id: sharepoint
+    type: sharepoint
+    description: "Enterprise documents and assumptions (configure connector in ATK)."
+
+  - id: foundry
+    type: foundry
+    description: "Enterprise knowledge index (optional)."
+
+  - id: fabric
+    type: fabric
+    description: "Fabric datasets as semantic grounding sources."
+
+connectors:
+  simulationService:
+    type: http
+    displayName: Simulation Microservice
+    description: "Local or hosted microservice that runs scenario simulations."
+    baseUrl: "https://localhost:5001" # update before use (use https when enabling TLS)
+    authentication:
+      type: bearer
+      description: "Set `SIM_API_KEY` on the microservice and provide the same token in the connector's Authorization header."
+
+actions:
+  - id: simulate
+    description: "POST scenario JSON to simulation microservice /simulate and return KPIs"
+    connector: simulationService
+    request:
+      method: POST
+      path: /simulate
+      headers:
+        Content-Type: application/json
+      # Example request body to POST a single scenario
+      sampleRequest:
+        name: example-scenario
+        infra: cloud
+        costEstimate: 120000
+        complexity: 1.2
+        workload: 3
+    response:
+      type: json
+      mapping:
+        results: $.results
+
+  - id: getResults
+    description: "Retrieve simulation results by id from /results/{id}"
+    connector: simulationService
+    request:
+      method: GET
+      path: /results/{id}
+    response:
+      type: json
+
+  - id: compare
+    description: "Composite action: run `/simulate` for two scenarios and return a combined comparison payload. (Agent runtime should call `simulate` twice.)"
+    connector: simulationService
+    request:
+      method: POST
+      path: /compare
+      headers:
+        Content-Type: application/json
+      # When using the `compare` intent, provide two scenarios in the query or provide paths to stored scenarios.
+      sampleRequest:
+        scenarios:
+          - name: scenarioA
+            infra: cloud
+            costEstimate: 120000
+            complexity: 1.1
+            workload: 3
+          - name: scenarioB
+            infra: hybrid
+            costEstimate: 100000
+            complexity: 1.4
+            workload: 4
+    response:
+      type: json
+      mapping:
+        # The runtime should aggregate the two simulate results into a comparison structure
+        results: $.results
+
+responses:
+  - intent: simulate-scenarios
+    text: "Running scenarios now — I'll return KPIs (cost, risk, time-to-market)."
+
+  - intent: compare-architectures
+    text: "Comparing architectures — returning ranked recommendations and key drivers."
+
+  - intent: explain-impact
+    text: "Explaining impact — summarizing drivers, assumptions, and citations."
+
+sampleDialogs:
+  - user: "Simulate this architecture"
+    bot: "Sure — please provide the scenario JSON or a path to it."
+
+  - user: "Compare cloud vs hybrid"
+    bot: "I'll run both simulations and return cost, risk, and time-to-market."
+
+notes: |
+  - Replace `connectors.simulationService.baseUrl` with your microservice URL.
+  - Configure grounding connectors (SharePoint/Foundry/Fabric) via ATK.
+  - Use `atk validate` and `atk sideload` to test the agent in Agents Playground.

@@ -1,0 +1,51 @@
+{
+  "comparison": {
+    "A": {
+      "id": "3e06ca3b-834b-4b5e-9326-1f01e95f33fa",
+      "results": {
+        "cost": 131000,
+        "timeToMarketMonths": 3,
+        "riskScore": 11,
+        "complianceGaps": []
+      },
+      "scenario": {
+        "name": "cloud-example",
+        "infra": "cloud",
+        "costEstimate": 120000,
+        "complexity": 1.1,
+        "workload": 3,
+        "complianceGaps": []
+      }
+    },
+    "B": {
+      "id": "b3b51351-789d-48bc-b0e8-8455fc647f0f",
+      "results": {
+        "cost": 139000,
+        "timeToMarketMonths": 6,
+        "riskScore": 19,
+        "complianceGaps": [
+          "data residency"
+        ]
+      },
+      "scenario": {
+        "name": "hybrid-example",
+        "infra": "hybrid",
+        "costEstimate": 100000,
+        "complexity": 1.4,
+        "workload": 4,
+        "complianceGaps": [
+          "data residency"
+        ]
+      }
+    },
+    "recommendation": "Recommend scenario A (3e06ca3b-834b-4b5e-9326-1f01e95f33fa) — lower cost and risk.",
+    "explanation": {
+      "costA": 131000,
+      "costB": 139000,
+      "riskA": 11,
+      "riskB": 19,
+      "deltaCost": -8000,
+      "deltaRisk": -8
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "hybrid-example",
+  "infra": "hybrid",
+  "costEstimate": 100000,
+  "complexity": 1.4,
+  "workload": 4,
+  "complianceGaps": ["data residency"]
+}

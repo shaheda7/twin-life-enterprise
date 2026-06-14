@@ -1,0 +1,8 @@
+{
+  "name": "cloud-example",
+  "infra": "cloud",
+  "costEstimate": 120000,
+  "complexity": 1.1,
+  "workload": 3,
+  "complianceGaps": []
+}
