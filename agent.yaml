@@ -55,6 +55,18 @@ connectors:
     authentication:
       type: bearer
       description: "Set `SIM_API_KEY` on the microservice and provide the same token in the connector's Authorization header."
+      # Optional Key Vault-backed token source (recommended for deployments):
+      # The agent runtime should retrieve the secret value from Key Vault and
+      # use it as the Bearer token. Replace `vaultName` and `secretName` where
+      # appropriate, or use a managed identity to access Key Vault from your
+      # deployment environment.
+      tokenSource:
+        type: keyVault
+        vaultName: twinlife-vault
+        secretName: TwinLife-ClientSecret
+        # Notes: runtime should support either Managed Identity (preferred) or
+        # client credentials retrieved from a secure store. If running locally
+        # continue to use `SIM_API_KEY` env var for convenience.
 
 actions:
   - id: simulate
