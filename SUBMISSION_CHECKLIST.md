@@ -33,3 +33,17 @@ Checklist (for team)
 - [ ] Microservice runs locally
 - [ ] No secrets in repo
 - [ ] ZIP package created for submission
+
+Release & submission
+- Release published: https://github.com/shaheda7/twin-life-enterprise/releases/tag/v1.0
+- Ensure the release asset `microservice/submission_summary.zip` is attached and downloadable.
+
+Judging instructions (one-liner to include in SUBMIT.md)
+- Step 1: Download and unzip `submission_summary.zip`.
+- Step 2: Start microservice: `cd microservice && SIM_API_KEY=devkey node index.js &`.
+- Step 3: Run the demo: use `scripts/generate_summary.js` or follow `DEMO_SCRIPT.md` in the repo.
+
+Final checklist
+- [ ] Release created and link shared with judges
+- [ ] ZIP verified downloadable
+- [ ] `SUBMIT.md` included with quick run steps

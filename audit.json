@@ -1,7 +1,7 @@
 {
   "comparison": {
     "A": {
-      "id": "98016ccc-922f-4cbb-8d71-112058e8ba4f",
+      "id": "a637774d-22ac-4bb3-838a-6d00ce394d3f",
       "results": {
         "cost": 131000,
         "timeToMarketMonths": 3,
@@ -18,7 +18,7 @@
       }
     },
     "B": {
-      "id": "0ddc3339-72a4-4b78-9628-f3aa170513d0",
+      "id": "d9f1a2e6-6331-4db7-8c48-e90372329668",
       "results": {
         "cost": 139000,
         "timeToMarketMonths": 6,
@@ -38,7 +38,7 @@
         ]
       }
     },
-    "recommendation": "Recommend scenario A (98016ccc-922f-4cbb-8d71-112058e8ba4f) — lower cost and risk.",
+    "recommendation": "Recommend scenario A (a637774d-22ac-4bb3-838a-6d00ce394d3f) — lower cost and risk.",
     "explanation": {
       "costA": 131000,
       "costB": 139000,

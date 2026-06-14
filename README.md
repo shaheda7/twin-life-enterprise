@@ -58,6 +58,7 @@ npm start
 ## Files to review
 - [twin-life-enterprise/DEMO_SCRIPT.md](twin-life-enterprise/DEMO_SCRIPT.md)
 - [twin-life-enterprise/SUBMISSION_CHECKLIST.md](twin-life-enterprise/SUBMISSION_CHECKLIST.md)
+ - [SUBMIT.md](SUBMIT.md)
 
 ## Artifacts
 - One-page PDF summary: [twin-life-enterprise/SUMMARY.pdf](twin-life-enterprise/SUMMARY.pdf)

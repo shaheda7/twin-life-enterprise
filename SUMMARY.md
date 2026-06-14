@@ -1,13 +1,13 @@
 # One-Page Recommendation
 
-**Recommendation:** Recommend scenario A (98016ccc-922f-4cbb-8d71-112058e8ba4f) — lower cost and risk.
+**Recommendation:** Recommend scenario A (a637774d-22ac-4bb3-838a-6d00ce394d3f) — lower cost and risk.
 
 ## KPIs
 
 | Scenario | Cost | Time-to-market (months) | Risk score |
 |---|---:|---:|---:|
-| A (98016ccc-922f-4cbb-8d71-112058e8ba4f) | 131000 | 3 | 11 |
-| B (0ddc3339-72a4-4b78-9628-f3aa170513d0) | 139000 | 6 | 19 |
+| A (a637774d-22ac-4bb3-838a-6d00ce394d3f) | 131000 | 3 | 11 |
+| B (d9f1a2e6-6331-4db7-8c48-e90372329668) | 139000 | 6 | 19 |
 
 ## Explanation
 
