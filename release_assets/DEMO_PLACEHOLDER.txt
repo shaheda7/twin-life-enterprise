@@ -1,0 +1,3 @@
+This is a placeholder for the demo recording. Replace this file with a real video file named `demo_recording.mp4` (or .mov/.webm) before uploading to the GitHub release.
+
+Suggested recording length: 60-180 seconds, showing the microservice start, a simulation run, and the generated summary PDF.
